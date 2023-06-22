@@ -1,0 +1,15 @@
+{
+  "name": "flapmap-1",
+  "version": "1.0.0",
+  "description": "flapmap project for wdd330",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Rene Olive",
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^4.3.9"
+  }
+}
