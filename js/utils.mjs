@@ -1,6 +1,6 @@
 export async function loadHeaderFooter() {
-    const headerTemplateFn = loadTemplate("/partials/header.html");
-    const footerTemplateFn = loadTemplate("/partials/footer.html");
+    const headerTemplateFn = loadTemplate("/public/partials/header.html");
+    const footerTemplateFn = loadTemplate("/public/partials/footer.html");
     const headerEl = document.getElementById("main-header");
     const footerEl = document.getElementById("main-footer");
     renderWithTemplate(headerTemplateFn, headerEl);
@@ -34,55 +34,25 @@ export async function renderWithTemplate(
         }
     };
   } 
+
+
+  export async function getBirds(stateAb, day, month, year, maxResults) {
+    const myHeaders = new Headers();
+    myHeaders.append("X-eBirdApiToken", "j3ujg9aifboj");
   
-  //newsletter
+    const requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
   
-  export function initializeNewsletter() {
-    var newsletterDiv = document.getElementById("newsletter");
+    try {
+      const response = await fetch(`https://api.ebird.org/v2/data/obs/US-${stateAb}/historic/${year}/${month}/${day}?maxResults=${maxResults}`, requestOptions)
+      const data = await response.json();
   
-    var newslettersignup = document.createElement("p");
-    newslettersignup.textContent = "Don't miss out on your FlapNews- sign up for our monthly newsletter!";
-    newslettersignup.classList.add("signup-heading");
-    var form = document.createElement("form");
-    form.id = "newsletterForm";
-  
-    var emailInput = document.createElement("input");
-    emailInput.type = "email";
-    emailInput.id = "emailInput";
-    emailInput.placeholder = "Enter your email address";
-    emailInput.required = true;
-  
-    var submitButton = document.createElement("input");
-    submitButton.type = "submit";
-    submitButton.value = "Subscribe";
-  
-    form.appendChild(emailInput);
-    form.appendChild(submitButton);
-  
-    newsletterDiv.appendChild(newslettersignup);
-    newsletterDiv.appendChild(form);
-  
-    // Create the popup message
-    var popupDiv = document.getElementById("popup");
-  
-    var closeButton = document.createElement("button");
-    closeButton.textContent = "OK";
-    closeButton.classList.add("close-button");
-  
-    var thanksMessage = document.createElement("p");
-    thanksMessage.textContent = "Thanks for subscribing!";
-    
-    popupDiv.appendChild(thanksMessage);
-    popupDiv.appendChild(closeButton);
-    
-  
-    form.addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent form submission
-  
-      popupDiv.style.display = "block";
-    });
-  
-    closeButton.addEventListener("click", function() {
-      popupDiv.style.display = "none";
-    });
+      return data;
+    } catch (error) {
+      console.log('Error fetching bird data:', error);
+      return [];
+    }
   }
