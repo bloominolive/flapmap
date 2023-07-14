@@ -35,7 +35,7 @@ export async function getBirdListFromLocation(event) {
   try {
     const location = await getLocationInfo(zipcode);
     const maxResults = 100;
-    const birdsList = await getBirds(location.getStateAb(), day, month, year, maxResults);
+    var birdsList = await getBirds(location.getStateAb(), day, month, year, maxResults);
     console.log(birdsList);
   if (birdsList) {
       displayBirdList(birdsList);

@@ -8,10 +8,10 @@ sliderContainer.classList.add('slider');
 
 // Create slide elements
 const images = [
-  'public/images/bird-berries.jpg',
-  'public/images/bluebird-branch.jpg',
-  'public/images/owl-branch.jpg',
-  'public/images/sparrows-branch.jpg'
+  '/images/bird-berries.jpg',
+  '/images/bluebird-branch.jpg',
+  '/images/owl-branch.jpg',
+  '/images/sparrows-branch.jpg'
 ];
 
 images.forEach(imageSrc => {
