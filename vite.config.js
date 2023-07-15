@@ -1,5 +1,6 @@
 import { resolve } from "path";
 module.exports = {
+  root: "src/",
     build: {
       outDir: "dist",
       base: "/flapmap/",
