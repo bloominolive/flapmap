@@ -3,7 +3,6 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: "src/",
-  base: "/flapmap/",
   build: {
     outDir: "../dist",    
     rollupOptions: {
