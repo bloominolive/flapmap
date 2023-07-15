@@ -14,8 +14,5 @@ export default defineConfig({
     },
   },
 });
-// module.exports = {
- 
-// };
   
  
