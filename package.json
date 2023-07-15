@@ -2,7 +2,7 @@
   "name": "flapmap",
   "version": "1.0.0",
   "description": "flapmap project for wdd330",
-  "main": "config.js",
+  "main": "main.js",
   "scripts": {
     "start": "vite",
     "build": "vite build --emptyOutDir",
@@ -16,5 +16,10 @@
   "license": "ISC",
   "dependencies": {
     "vite": "^4.3.9"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }
