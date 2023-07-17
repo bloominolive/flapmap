@@ -64,6 +64,10 @@ function displayBirdList(birds) {
     birdListContainer.appendChild(birdSciName);
     birdListContainer.appendChild(birdLocation);
     birdListContainer.appendChild(birdQuantity);
+    
+    const hr = document.createElement('hr');
+    birdListContainer.appendChild(hr);
+    hr.classList.add('zip-divider');
   });
 }
 

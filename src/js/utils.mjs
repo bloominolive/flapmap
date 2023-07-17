@@ -1,10 +1,24 @@
 export async function loadHeaderFooter() {
     const headerTemplateFn = loadTemplate("/partials/header.html");
+    const navTemplateFn = loadTemplate("/partials/nav.html");
     const footerTemplateFn = loadTemplate("/partials/footer.html");
     const headerEl = document.getElementById("main-header");
+    const navE1 = document.getElementById("main-nav");
     const footerEl = document.getElementById("main-footer");
-    renderWithTemplate(headerTemplateFn, headerEl);
-    renderWithTemplate(footerTemplateFn, footerEl);
+    await renderWithTemplate(headerTemplateFn, headerEl);
+    await renderWithTemplate(navTemplateFn, navE1);
+    await renderWithTemplate(footerTemplateFn, footerEl);
+    const x = document.getElementById('hamburgerBtn');
+    x.addEventListener('click', toggleMenu);
+
+    const currentPage = window.location.pathname;
+    const navLinks = navE1.getElementsByTagName("a");
+    for (let i = 0; i < navLinks.length; i++) {
+      const link = navLinks[i];
+      if (link.href.endsWith(currentPage)) {
+        link.classList.add("active-link");
+      }
+    }
   }
 
 export async function renderWithTemplate(
@@ -34,6 +48,13 @@ export async function renderWithTemplate(
         }
     };
   } 
+
+  // Hamburger Nav function 
+function toggleMenu() {
+  document.getElementById("primaryNav").classList.toggle("open");
+  document.getElementById("hamburgerBtn").classList.toggle("open");
+}
+
 
 
   export async function getBirds(stateAb, day, month, year, maxResults) {

@@ -74,6 +74,10 @@ export function zipEntry() {
   var form = document.createElement("form");
   form.id = "zipcodeForm";
 
+  var zipLabel = document.createElement('label');
+  zipLabel.textContent = "Zipcode:"
+  zipLabel.setAttribute('for', 'zipInput')
+
   var zipInput = document.createElement("input");
   zipInput.type = "text";
   zipInput.pattern = "\\d{5}";
@@ -95,23 +99,30 @@ export function zipEntry() {
   // Set the default value to today
   var today = new Date();
   var formattedDate = today.toISOString().substr(0, 10);
-  dateInput.defaultValue = formattedDate;
+  dateInput.defaultValue = formattedDate
 
   form.appendChild(dateInput);
 
   var submitButton = document.createElement("input");
   submitButton.type = "submit";
   submitButton.value = "Find";
+  submitButton.classList.add('submitBtn');
 
   var locationButton = document.createElement("button");
   locationButton.textContent = "Use my location";
 
+  
+  form.appendChild(zipLabel)
   form.appendChild(zipInput);
   form.appendChild(submitButton);
+
+  form.insertBefore(document.createElement("br"), zipLabel);
+  form.insertBefore(document.createElement("br"), submitButton);
 
   zipEntryDiv.appendChild(zipMessage);
   zipEntryDiv.appendChild(form);
   zipEntryDiv.appendChild(locationButton);
+  locationButton.classList.add('locationBtn');
 
   locationButton.addEventListener("click", function(event) {
     event.preventDefault(); // Prevent form submission

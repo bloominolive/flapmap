@@ -2,6 +2,7 @@ import { loadHeaderFooter} from "./utils.mjs";
 
 loadHeaderFooter();
 
+
 // Create the parent slider container
 const sliderContainer = document.createElement('div');
 sliderContainer.classList.add('slider');

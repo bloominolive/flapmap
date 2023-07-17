@@ -68,8 +68,7 @@ form.appendChild(document.createElement('br'));
 var notesTextarea = document.createElement('textarea');
 notesTextarea.id = 'notes';
 notesTextarea.name = 'notes';
-notesTextarea.rows = 4;
-notesTextarea.cols = 50;
+notesTextarea.classList.add('notes-box');
 form.appendChild(notesTextarea);
 
 form.appendChild(document.createElement('br'));
@@ -114,6 +113,9 @@ function displaySubmittedData(observations) {
       var notesElement = document.createElement('p');
       notesElement.textContent = 'Notes: ' + obs.notes;
       entrySection.appendChild(notesElement);
+
+      var hr = document.createElement('hr');
+      entrySection.appendChild(hr);
     
       entryDisplayDiv.appendChild(entrySection);
     });
