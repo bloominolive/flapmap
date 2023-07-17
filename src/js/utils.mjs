@@ -11,7 +11,7 @@ export async function loadHeaderFooter() {
     const x = document.getElementById('hamburgerBtn');
     x.addEventListener('click', toggleMenu);
 
-    const currentPage = window.location.pathname;
+    const currentPage = new URL(window.location.href).pathname;
     const navLinks = navE1.getElementsByTagName("a");
     for (let i = 0; i < navLinks.length; i++) {
       const link = navLinks[i];
