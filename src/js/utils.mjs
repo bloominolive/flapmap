@@ -15,11 +15,9 @@ export async function loadHeaderFooter() {
     const navLinks = navE1.getElementsByTagName("a");
     for (let i = 0; i < navLinks.length; i++) {
       const link = navLinks[i];
-      const linkText = link.textContent.trim();
+      const href = new URL(link.href).pathname; // Get the pathname of the link URL
 
-      if (linkText === "Find Birds" && currentPage === "/birdsList.html") {
-        link.classList.add("active-link");
-      } else if (linkText === "Birds Journal" && currentPage === "/birdsjournal.html") {
+      if (currentPage === href) {
         link.classList.add("active-link");
       }
     }
