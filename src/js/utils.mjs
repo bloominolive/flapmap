@@ -13,11 +13,13 @@ export async function loadHeaderFooter() {
 
     const currentPage = window.location.pathname;
     const navLinks = navE1.getElementsByTagName("a");
+    
     for (let i = 0; i < navLinks.length; i++) {
       const link = navLinks[i];
       const href = new URL(link.href).pathname;
-
-      if (currentPage == href) {
+      const lastPart = href.split("/").pop(); 
+    
+      if (currentPage.endsWith(lastPart)) {
         link.classList.add("active-link");
       }
     }
