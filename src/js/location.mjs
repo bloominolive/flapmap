@@ -96,7 +96,6 @@ export function zipEntry() {
   dateInput.name = 'date';
   dateInput.required = true;
 
-  // Set the default value to today
   var today = new Date();
   var formattedDate = today.toISOString().substr(0, 10);
   dateInput.defaultValue = formattedDate
@@ -125,16 +124,9 @@ export function zipEntry() {
   locationButton.classList.add('locationBtn');
 
   locationButton.addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent form submission
-
-    getUserLocation()
-    .then(location => {
-      GetZipCodeFromLongLat(location.getLongitude(), location.getLatitude());
-    })
-    .catch(error => {
-      console.log('Error:', error.message);
-    });
-  });
+    event.preventDefault(); 
+ 
+});
 }
 
 class Location {

@@ -2,11 +2,9 @@ import { loadHeaderFooter } from "./utils.mjs"
 
 loadHeaderFooter();
 
-// Create the form
 var form = document.createElement('form');
 form.id = 'observationForm';
 
-// Create the Date field
 var dateLabel = document.createElement('label');
 dateLabel.setAttribute('for', 'date');
 dateLabel.textContent = 'Date:';
@@ -18,7 +16,6 @@ dateInput.id = 'date';
 dateInput.name = 'date';
 dateInput.required = true;
 
-// Set the default value to today
 var today = new Date();
 var formattedDate = today.toISOString().substr(0, 10);
 dateInput.defaultValue = formattedDate;
@@ -27,7 +24,6 @@ form.appendChild(dateInput);
 
 form.appendChild(document.createElement('br'));
 
-// Create the Bird Name field
 var birdNameLabel = document.createElement('label');
 birdNameLabel.setAttribute('for', 'birdName');
 birdNameLabel.textContent = 'Bird Name:';
@@ -42,7 +38,6 @@ form.appendChild(birdNameInput);
 
 form.appendChild(document.createElement('br'));
 
-// Create the Location field
 var locationLabel = document.createElement('label');
 locationLabel.setAttribute('for', 'location');
 locationLabel.textContent = 'Location:';
@@ -57,7 +52,6 @@ form.appendChild(locationInput);
 
 form.appendChild(document.createElement('br'));
 
-// Create the Notes field
 var notesLabel = document.createElement('label');
 notesLabel.setAttribute('for', 'notes');
 notesLabel.textContent = 'Notes:';
@@ -73,20 +67,16 @@ form.appendChild(notesTextarea);
 
 form.appendChild(document.createElement('br'));
 
-// Create the Submit button
 var submitButton = document.createElement('input');
 submitButton.type = 'submit';
 submitButton.value = 'Add Entry';
 form.appendChild(submitButton);
 
-// Append the form to the bird-entry div
 var birdEntryDiv = document.getElementById('bird-entry');
 birdEntryDiv.appendChild(form);
 
-// Retrieve and display all submitted entries from local storage
 displaySubmittedData(JSON.parse(localStorage.getItem('birdjournal')));
 
-// Function to display a submitted entry
 function displaySubmittedData(observations) {
   
   if(observations != null){

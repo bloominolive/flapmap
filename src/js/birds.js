@@ -22,6 +22,8 @@ var form = document.getElementById("zipcodeForm");
 form.addEventListener('submit', getBirdListFromLocation);
 
 export async function getBirdListFromLocation(event) {
+  var spinner = document.getElementById('loading-spinner');
+  spinner.classList.remove('hidden-spinner');
   event.preventDefault();
   const zipInput = document.getElementById('zipInput');
   const zipcode = zipInput.value;
@@ -42,14 +44,16 @@ export async function getBirdListFromLocation(event) {
     } else {
       birdsList = [];
     }
+  spinner.classList.add('hidden-spinner');
   } catch (error) {
     console.log('Error:', error);
   }
 }
 
+
 function displayBirdList(birds) {
   const birdListContainer = document.getElementById('birdListContainer');
-  birdListContainer.innerHTML = ''; // Clear previous content
+  birdListContainer.innerHTML = ''; 
 
   birds.forEach(bird => {
     const birdName = document.createElement('h2');
@@ -72,9 +76,7 @@ function displayBirdList(birds) {
 }
 
 function extractLocationName(locName) {
-  // Split the locName by whitespace and remove the last two elements (latitude and longitude)
   const locParts = locName.split(' ').slice(0, -2);
-  // Join the remaining parts to form the extracted location name
   const extractedName = locParts.join(' ');
   return extractedName;
 }

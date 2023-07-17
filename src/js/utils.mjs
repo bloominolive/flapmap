@@ -53,7 +53,6 @@ export async function renderWithTemplate(
     };
   } 
 
-  // Hamburger Nav function 
 function toggleMenu() {
   document.getElementById("primaryNav").classList.toggle("open");
   document.getElementById("hamburgerBtn").classList.toggle("open");
@@ -82,16 +81,15 @@ function toggleMenu() {
     }
   }
 
-  //Lazy Loading
   export async function lazyLoad(){
-const images = document.querySelectorAll("[data-srcset]");
+  const images = document.querySelectorAll("[data-srcset]");
 
-function preloadImage(image) {
-    image.setAttribute("srcset", image.getAttribute("data-srcset"));
-    image.onload = () => {
-      image.removeAttribute("data-srcset");
-    };
-}
+  function preloadImage(image) {
+      image.setAttribute("srcset", image.getAttribute("data-srcset"));
+      image.onload = () => {
+        image.removeAttribute("data-srcset");
+      };
+  }
 
 const imgOptions = {
     threshold : 1,
