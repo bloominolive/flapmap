@@ -15,9 +15,9 @@ export async function loadHeaderFooter() {
     const navLinks = navE1.getElementsByTagName("a");
     for (let i = 0; i < navLinks.length; i++) {
       const link = navLinks[i];
-      const href = new URL(link.href).pathname; // Get the pathname of the link URL
+      const href = new URL(link.href).pathname;
 
-      if (currentPage === href) {
+      if (currentPage == href) {
         link.classList.add("active-link");
       }
     }
