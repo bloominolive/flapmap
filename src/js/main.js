@@ -1,6 +1,7 @@
-import { loadHeaderFooter} from "./utils.mjs";
+import { loadHeaderFooter, lazyLoad} from "./utils.mjs";
 
 loadHeaderFooter();
+lazyLoad();
 
 
 // Create the parent slider container
@@ -28,14 +29,6 @@ images.forEach(imageSrc => {
   sliderContainer.appendChild(slide);
 });
 
-// Create previous and next buttons
-const prevButton = document.createElement('button');
-prevButton.classList.add('btn-slide', 'prev');
-prevButton.innerHTML = '<i class="fas fa-3x fa-chevron-circle-left"></i>';
-
-const nextButton = document.createElement('button');
-nextButton.classList.add('btn-slide', 'next');
-nextButton.innerHTML = '<i class="fas fa-3x fa-chevron-circle-right"></i>';
 
 // Create dots container
 const dotsContainer = document.createElement('div');
@@ -55,8 +48,6 @@ images.forEach((_, index) => {
 // Append all elements to the document
 const sliderParentElement = document.getElementById('image-slider'); // Parent element to append the slider
 sliderParentElement.appendChild(sliderContainer);
-sliderParentElement.appendChild(prevButton);
-sliderParentElement.appendChild(nextButton);
 sliderParentElement.appendChild(dotsContainer);
 
 
