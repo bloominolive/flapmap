@@ -159,12 +159,20 @@ function getRandomBirdFact() {
         birdTopSpeedElement.innerHTML = `<b>Top Speed:</b> ${birdTopSpeed}`;
         const birdLocationsElement = document.createElement('p');
         birdLocationsElement.innerHTML = `<b>Locations:</b> ${birdLocations.join(', ')}`;
+        const nextBirdButton = document.createElement('button');
+        nextBirdButton.textContent = 'Next Bird';
+        nextBirdButton.classList.add('submitBtn');
+        nextBirdButton.addEventListener('click', () => {
+          birdFactsDiv.innerHTML = '';
+          getRandomBirdFact();
+        });
         birdFactsDiv.appendChild(birdNameHeader);
         birdFactsDiv.appendChild(birdColorElement);
         birdFactsDiv.appendChild(birdPreyElement);
         birdFactsDiv.appendChild(birdWingspanElement);
         birdFactsDiv.appendChild(birdTopSpeedElement);
         birdFactsDiv.appendChild(birdLocationsElement);
+        birdFactsDiv.appendChild(nextBirdButton);
       } else {
         console.error('No bird facts found.');
       }

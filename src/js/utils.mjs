@@ -10,19 +10,6 @@ export async function loadHeaderFooter() {
     await renderWithTemplate(footerTemplateFn, footerEl);
     const x = document.getElementById('hamburgerBtn');
     x.addEventListener('click', toggleMenu);
-
-    const currentPage = window.location.pathname;
-    const navLinks = navE1.getElementsByTagName("a");
-    
-    for (let i = 0; i < navLinks.length; i++) {
-      const link = navLinks[i];
-      const href = new URL(link.href).pathname;
-      const lastPart = href.split("/").pop(); 
-    
-      if (currentPage.endsWith(lastPart)) {
-        link.classList.add("active-link");
-      }
-    }
   }
 
 export async function renderWithTemplate(

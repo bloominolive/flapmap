@@ -70,6 +70,7 @@ form.appendChild(document.createElement('br'));
 var submitButton = document.createElement('input');
 submitButton.type = 'submit';
 submitButton.value = 'Add Entry';
+submitButton.classList.add('submitBtn');
 form.appendChild(submitButton);
 
 var birdEntryDiv = document.getElementById('bird-entry');
